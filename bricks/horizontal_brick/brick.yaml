@@ -1,0 +1,9 @@
+version: 0.1.0
+
+name: feature
+description: A clean architecture feature template with vertical slicing for Flutter.
+
+vars:
+  feature_name:
+    type: string
+    description: "Feature name (e.g., 'auth', 'products')"
