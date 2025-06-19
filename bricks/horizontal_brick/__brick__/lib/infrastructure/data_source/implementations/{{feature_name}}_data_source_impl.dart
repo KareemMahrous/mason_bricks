@@ -1,7 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../../infrastructure.dart';
-import '../../../domain/domain.dart';
 import '../../../core/core.dart';
 import '../../../app/app.dart';
 
@@ -15,7 +14,7 @@ class {{feature_name.pascalCase()}}DataSourceImpl implements {{feature_name.pasc
   // Add your data source implementation here
   // Example:
   @override
-  Future<ResponseModel> fetch{{feature_name.pascalCase()}}s() async {
+  Future<Map<String, dynamic>> fetch{{feature_name.pascalCase()}}s() async {
   try {
     final result = await _graphService.client.queryManager.query(
       QueryOptions(
@@ -25,7 +24,7 @@ class {{feature_name.pascalCase()}}DataSourceImpl implements {{feature_name.pasc
       ),
     );
 
-    final response = ResponseModel.fromJson(result.data!);
+    final response = result.data!;
     return response;
   } catch (e) {
     throw NetworkFailure('Failed to fetch {{feature_name.pascalCase()}}s: $e');
